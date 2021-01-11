@@ -28,6 +28,14 @@
                                     <segue destination="9tO-8W-UPF" kind="show" id="PSB-DM-Cvf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaq-BI-1Gf">
+                                <rect key="frame" x="182" y="251" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Display"/>
+                                <connections>
+                                    <action selector="DisplayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kb3-U8-iIO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>

@@ -16,11 +16,13 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-  [self displayImage];
+  //[self displayImage];
 }
 
 
 - (IBAction)Button:(UIButton *)sender {
+  
+  //------------HTTP--------------------
   NSLog(@"TANAKA!");
   //_Label.text = @"TANAKA!";
   
@@ -40,6 +42,10 @@
     [http_instance http_request_insert:Name_String score:Score_String];
      */
   }
+  
+  
+  //----------------DISPLAY-IMAGE-TEST--------------------
+  
 }
 
 /*
@@ -54,6 +60,16 @@
 - (IBAction)NameOnReturn:(UITextField *)sender {
   [sender resignFirstResponder];
 }
+
+- (IBAction)DisplayButton:(UIButton *)sender {
+  NSLog(@"DISP");
+  //UIImageView *ball_view = [_ball display];
+  _ball = [[Ball alloc] init];//知らんけど初期化要るっぽい。
+  //[_ball method];
+  _imageView = [_ball display];
+  [[self view] addSubview:_imageView];
+}
+
 - (IBAction)ScoreOnReturn:(UITextField *)sender {
   [sender resignFirstResponder];
 }

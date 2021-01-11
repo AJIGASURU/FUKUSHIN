@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HTTP.h"
+#import "Ball.h"
 
 @interface ViewController : UIViewController
 
@@ -25,8 +26,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *Score_Text;
 - (IBAction)ScoreOnReturn:(UITextField *)sender;
 
+
+- (IBAction)DisplayButton:(UIButton *)sender;
+
 @property UIImage *image;
 @property UIImageView *imageView;
+
+//property->インスタンス変数とアクセサーをまとめて自動生成
+@property Ball *ball;
 
 @end
 

@@ -18,4 +18,8 @@
 @property UIImage *image;
 @property UIImageView *imageView;
 
+- (UIImageView *)display;
+
+-(void)method;
+
 @end
