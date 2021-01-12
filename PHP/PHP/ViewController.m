@@ -11,12 +11,16 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController{
+  NSTimer *timer;
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
   //[self displayImage];
+  [self setTimer];
+  //---timer set---
 }
 
 
@@ -66,15 +70,14 @@
   //UIImageView *ball_view = [_ball display];
   _ball = [[Ball alloc] init];//知らんけど初期化要るっぽい。
   //[_ball method];
-  _imageView = [_ball display];
-  [[self view] addSubview:_imageView];
+  //ポインタなんだから、ボールクラスのイメージビュー参照すればいいのでは。
+  //_ballImageView = [_ball display];
+  [[self view] addSubview:_ball.imageView];
 }
 
 - (IBAction)ScoreOnReturn:(UITextField *)sender {
   [sender resignFirstResponder];
 }
-
-
 
 - (void)displayImage{
     // 画像を表示
@@ -101,7 +104,22 @@
   [[self view] addSubview:_imageView];
 }
 
+-(void)setTimer{
+  if (!timer) {
+          timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+          [timer fire];
+      }
+}
 
-
+- (void)update:(NSTimer *)timer {//update
+  //ボールの移動処理----
+  _ball.imageView.center = CGPointMake(_ball.imageView.center.x + 1, _ball.imageView.center.y);
+  /*
+    if (_imageView.center.x > self.view.bounds.size.width) {
+        sampleView.center = CGPointMake(0, sampleView.center.y);
+    }
+   */
+  //-----------------
+}
 
 @end

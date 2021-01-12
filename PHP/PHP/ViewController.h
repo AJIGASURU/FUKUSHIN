@@ -13,6 +13,7 @@
 
 @interface ViewController : UIViewController
 
+//---second view--
 
 @property (weak, nonatomic) IBOutlet UILabel *Label;
 
@@ -27,13 +28,18 @@
 - (IBAction)ScoreOnReturn:(UITextField *)sender;
 
 
+
+//----------initial view---------
+
 - (IBAction)DisplayButton:(UIButton *)sender;
 
+//---いらんそう。----
 @property UIImage *image;
 @property UIImageView *imageView;
 
 //property->インスタンス変数とアクセサーをまとめて自動生成
-@property Ball *ball;
+@property Ball *ball;//propertyな必要ないかも
+@property UIImageView *ballImageView;
 
 @end
 
