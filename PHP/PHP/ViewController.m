@@ -12,15 +12,24 @@
 @end
 
 @implementation ViewController{
+  //timer
   NSTimer *timer;
+  //button
+  UIButton *bulletButton;
+  UIImage *bulletImage;
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-  //[self displayImage];
   [self setTimer];
-  //---timer set---
+  //ボタンの生成
+  bulletButton =  [[UIButton alloc] init];
+  bulletImage = [UIImage imageNamed:@"ball"];
+  [bulletButton setBackgroundImage:bulletImage forState:UIControlStateNormal];
+  //CGRectMake(x,y,width,height)
+  bulletButton.frame = CGRectMake(10, 10, 50, 50);
+  [[self view] addSubview:bulletButton];
 }
 
 
@@ -69,9 +78,6 @@
   NSLog(@"DISP");
   //UIImageView *ball_view = [_ball display];
   _ball = [[Ball alloc] init];//知らんけど初期化要るっぽい。
-  //[_ball method];
-  //ポインタなんだから、ボールクラスのイメージビュー参照すればいいのでは。
-  //_ballImageView = [_ball display];
   [[self view] addSubview:_ball.imageView];
 }
 
@@ -79,7 +85,7 @@
   [sender resignFirstResponder];
 }
 
-- (void)displayImage{
+- (void)displayImage{//使ってない？
     // 画像を表示
   NSLog(@"image load");
     _image = [UIImage imageNamed:@"ball"];
