@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6312DACD2583168500ED30C8 /* HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6312DACC2583168500ED30C8 /* HTTP.m */; };
-		632BA76225AC6836006BF29E /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 632BA76125AC6836006BF29E /* Ball.m */; };
-		637B994E2588B2160018D4F4 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 637B994D2588B2160018D4F4 /* ViewController2.m */; };
+		632770CA25B95B0E002FFA8D /* BallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 632770C925B95B0E002FFA8D /* BallButton.m */; };
 		637CE2ED2574FE6D0047DCB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 637CE2EC2574FE6D0047DCB5 /* AppDelegate.m */; };
 		637CE2F02574FE6D0047DCB5 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 637CE2EF2574FE6D0047DCB5 /* SceneDelegate.m */; };
 		637CE2F32574FE6D0047DCB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 637CE2F22574FE6D0047DCB5 /* ViewController.m */; };
@@ -42,9 +41,8 @@
 /* Begin PBXFileReference section */
 		6312DACC2583168500ED30C8 /* HTTP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTP.m; sourceTree = "<group>"; };
 		6312DAD1258316A200ED30C8 /* HTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTP.h; sourceTree = "<group>"; };
-		632BA76125AC6836006BF29E /* Ball.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
-		632BA76625AC6847006BF29E /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
-		637B994D2588B2160018D4F4 /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		632770C925B95B0E002FFA8D /* BallButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BallButton.m; sourceTree = "<group>"; };
+		632770CE25B95B1D002FFA8D /* BallButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BallButton.h; sourceTree = "<group>"; };
 		637CE2E82574FE6D0047DCB5 /* PHP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PHP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		637CE2EB2574FE6D0047DCB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		637CE2EC2574FE6D0047DCB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -119,11 +117,10 @@
 				637CE2EC2574FE6D0047DCB5 /* AppDelegate.m */,
 				637CE2EE2574FE6D0047DCB5 /* SceneDelegate.h */,
 				637CE2EF2574FE6D0047DCB5 /* SceneDelegate.m */,
-				637B994D2588B2160018D4F4 /* ViewController2.m */,
 				637CE2F12574FE6D0047DCB5 /* ViewController.h */,
 				637CE2F22574FE6D0047DCB5 /* ViewController.m */,
-				632BA76125AC6836006BF29E /* Ball.m */,
-				632BA76625AC6847006BF29E /* Ball.h */,
+				632770C925B95B0E002FFA8D /* BallButton.m */,
+				632770CE25B95B1D002FFA8D /* BallButton.h */,
 				637CE2F42574FE6D0047DCB5 /* Main.storyboard */,
 				637CE2F72574FE710047DCB5 /* Assets.xcassets */,
 				637CE2F92574FE710047DCB5 /* LaunchScreen.storyboard */,
@@ -297,8 +294,7 @@
 				637CE2ED2574FE6D0047DCB5 /* AppDelegate.m in Sources */,
 				637CE2FE2574FE710047DCB5 /* main.m in Sources */,
 				637CE2F02574FE6D0047DCB5 /* SceneDelegate.m in Sources */,
-				632BA76225AC6836006BF29E /* Ball.m in Sources */,
-				637B994E2588B2160018D4F4 /* ViewController2.m in Sources */,
+				632770CA25B95B0E002FFA8D /* BallButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -457,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

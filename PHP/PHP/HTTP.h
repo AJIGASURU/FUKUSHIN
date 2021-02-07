@@ -14,6 +14,9 @@
 
 @interface Http_class : NSObject
 
-- (void)http_request_insert:(NSString*)name score:(NSString*)score;
+- (void)http_request_insert:(NSString*)name score:(NSString*)score success:(bool*)success;
+- (void)http_request_select:(bool*)success;
+
+@property NSArray *jsonData;
 
 @end

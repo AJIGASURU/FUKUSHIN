@@ -9,8 +9,11 @@
 
 @implementation Http_class
 
-- (void)http_request_insert:(NSString*)name score:(NSString*)score{
-  NSString *url = @"http://192.168.129.28/test02.php";
+- (void)http_request_insert:(NSString*)name score:(NSString*)score success:(bool*)success{
+  //__block NSArray *json_data_;
+  __block bool *success_pointer = success;
+  
+  NSString *url = @"http://192.168.111.104/test02.php";
   NSString *postString;
   NSMutableURLRequest *request;
 
@@ -36,13 +39,14 @@
   NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
           // _Nullable -> nilを許容。
           // connectionError -> error
+    NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+    
           if (error) {
               NSLog(@"Error\n");
               //[[NSNotificationCenter defaultCenter] postNotificationName:@"LoadDataFailed" object:nil];
               return;
           }
-          NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-          if (statusCode != 200) {
+    if (statusCode != 200) {
               NSLog(@"200 Error\n");
               NSLog(@"response status code: %ld", (long)statusCode);
               //[[NSNotificationCenter defaultCenter] postNotificationName:@"LoadDataFailed" object:nil];
@@ -55,10 +59,13 @@
                                                 //encoding:NSUTF8StringEncoding];
           //NSLog(@"%@", data_string);
           NSArray *json_data = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-          NSLog(@"NAME：%@　SCORE：%@", [json_data valueForKeyPath:@"name"], [json_data valueForKeyPath:@"score"]);
+          self->_jsonData = json_data;
+    //NSLog(@"NAME：%@　SCORE：%@", [self->_jsonData valueForKeyPath:@"name"], [self->_jsonData valueForKeyPath:@"score"]);
+    //NSLog(@"%@", self->_jsonData);
+          *success_pointer = true;
       }];
-      [task resume];//タスクを再開？なにこれわからん。
-  
+      [task resume];//タスクを再開？裏で実行されるっぽい。
+  return;
   /*
   //同期通信で送信
   NSURLResponse *response = nil;
@@ -83,6 +90,46 @@
     NSLog(@"接続成功");
     //[NSMutableData data];
   }*/
+}
+
+- (void)http_request_select:(bool*)success{
+  //__block bool *success_pointer = success;
+  
+  NSString *url = @"http://192.168.111.104/test03.php";
+  
+  NSMutableURLRequest *request;
+  // リクエスト設定
+  request = [[NSMutableURLRequest alloc] init];
+  // ゲット
+  [request setHTTPMethod:@"GET"];
+  [request setURL:[NSURL URLWithString:url]];
+  [request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
+  [request setTimeoutInterval:20];
+  [request setHTTPShouldHandleCookies:FALSE];
+  //ephemeralだとメモリ使用量の制限があるらしい。よくわからんが。
+  //NSURLSessionが破棄されたタイミングで全てのデータを削除。
+  NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+  NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+  NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+          // connectionError -> error
+    NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+    
+          if (error) {
+              NSLog(@"Error\n");
+              return;
+          }
+    if (statusCode != 200) {
+              NSLog(@"200 Error\n");
+              NSLog(@"response status code: %ld", (long)statusCode);
+              return;
+          }
+          NSLog(@"Success\n");
+          NSArray *json_data = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+          self->_jsonData = json_data;
+          //*success_pointer = true;
+      }];
+      [task resume];//タスクを再開？裏で実行されるっぽい。
+  return;
 }
 
 @end
